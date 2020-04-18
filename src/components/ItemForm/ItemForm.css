@@ -1,0 +1,41 @@
+.itemform {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemform__row {
+    display: flex;
+}
+
+.itemform__row > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.5em 0.3em;
+    flex: 1 1 auto;
+}
+
+.itemform input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+.itemform input[type="date"]::-webkit-spin-button {
+    display: none;
+}
+
+
+.itemform input {
+    padding: 0.5em;
+    border: 1px solid #999;
+    border-radius: 0.3em;
+    font-size: 1.1em;
+    font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+}
+
+.itemform label {
+    font-size: 0.8em;
+    margin-bottom: 0.2em;
+}

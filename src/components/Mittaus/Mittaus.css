@@ -1,0 +1,21 @@
+.mittaus {
+    padding: 1em;
+    border-bottom: 1px solid #BADDFE;
+  
+  }
+  
+.mittaus__rivi {
+    display: flex;
+    justify-content: space-between; 
+}
+  
+.mittaus__paino, .mittaus__vyotaro {
+    font-weight: bold;
+}
+  
+.mittaus__mittauspaiva, .mittaus__viikko 
+ {
+  font-size: 85%;
+  color: #666;
+  }
+  

@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import testdata from './testdata';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './components/Header/Header';
+import Items from './components/Items/Items';
+import Stats from './components/Stats/Stats';
+import Settings from './components/Settings/Settings';
+import Menu from './components/Menu/Menu';
+import AddItem from './components/AddItem/AddItem';
+
+class App extends Component {
+
+constructor(props) {
+  super(props);
+  this.state = {
+    data: testdata
+  }
+  this.handleFormSubmit = this.handleFormSubmit.bind(this);
 }
+
+ handleFormSubmit(newdata) {
+   let storeddata = this.state.data.slice();
+   storeddata.push(newdata);
+   storeddata.sort((a,b) => {
+     const aDate = new Date(a.mittauspaiva);
+     const bDate = new Date(b.mittauspaiva);
+     return bDate.getTime() - aDate.getTime();
+   });
+   this.setState({
+     data: storeddata
+   });
+ }
+
+  render () {
+    return (
+      <Router>
+    <div className="App">
+        <Header />
+       <Route path="/" exact render={() => <Items data={this.state.data} />} />
+       <Route path="/stats" component={Stats}  />
+       <Route path="/settings" component={Settings} />
+       <Route path="/add" render={() => <AddItem onFormSubmit={this.handleFormSubmit}/>} />
+       <Menu />
+      </div>
+    </Router>
+   );
+  }
+}
+
 
 export default App;
