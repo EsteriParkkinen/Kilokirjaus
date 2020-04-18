@@ -22,7 +22,7 @@ const testdata = [
   mittauspaiva: "2020-03-25",
   paino: 0,
   vyotaro: 0
- },
+ }
    
 ];
 

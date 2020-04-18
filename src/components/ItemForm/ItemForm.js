@@ -20,6 +20,7 @@ class ItemForm extends React.Component {
             vyotaro: 0
            }
         };
+
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
@@ -57,7 +58,7 @@ class ItemForm extends React.Component {
     render() {
         return (
 
-<form onSumbmit={this.handleSubmit}>
+<form onSubmit={this.handleSubmit}>
 
 <div className="itemform">
 
@@ -90,7 +91,7 @@ class ItemForm extends React.Component {
 
     <div className="itemform__row">
       <div>
-      <Button onClik={this.handleCancel}>PERUUTA</Button>
+      <Button onClick={this.handleCancel}>PERUUTA</Button>
       </div>
       <div>
       <Button type="submit" primary>LISÄÄ</Button>
