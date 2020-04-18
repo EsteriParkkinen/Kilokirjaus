@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 
+import { v4 as uuidv4 } from 'uuid'; 
 
 import Button from '../buttons';
 
@@ -13,8 +14,8 @@ class ItemForm extends React.Component {
       super(props);
       this.state = {
         data: {
-            viikko: undefined,
-            mittauspaiva: undefined,
+            viikko: "",
+            mittauspaiva: "",
             paino: 0,
             vyotaro: 0
            }
@@ -46,8 +47,9 @@ class ItemForm extends React.Component {
        handleSubmit(event) {
          event.preventDefault();
          console.log("lisää kirjaus");
-        let data = Object.assign([], this.state.data);
+        let data = Object.assign({}, this.state.data);
         data.paino = parseFloat(data.paino);
+        data.id = data.id ? data.id : uuidv4();
         this.props.onFormSubmit(data);
         this.props.history.push("/");
        }
@@ -62,12 +64,12 @@ class ItemForm extends React.Component {
   <div className="itemform__row">
 
     <div>
-        <label for="name"> viikko: </label>
+        <label htmlFor="name"> viikko: </label>
         <input type="week" name="viikko" value={this.state.data.viikko} onChange={this.handleInputChange}  />
       </div>
 
      <div>
-      <label for="name">mittauspäivä: </label>
+      <label htmlFor="name">mittauspäivä: </label>
        <input type="date" name="mittauspaiva" value={this.state.data.mittauspaiva} onChange={this.handleInputChange} />
      </div>
      </div>
@@ -76,12 +78,12 @@ class ItemForm extends React.Component {
 
   <div className="itemform__row">
        <div>
-          <label for="name">paino: </label>
+          <label htmlFor="name">paino: </label>
           <input type="number" name="paino" step="O.5" size="10" value={this.state.data.paino} onChange={this.handleInputChange} />
       </div>  
 
        <div>
-           <label for="name">vyötärö: </label>
+           <label htmlFor="name">vyötärö: </label>
            <input type="number" name="vyotaro" step="0.5" size="8" value={this.state.data.vyotaro} onChange={this.handleInputChange} />
        </div> 
     </div>

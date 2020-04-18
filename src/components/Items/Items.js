@@ -11,7 +11,7 @@ function Items(props) {
 
   let rows = props.data.map(invoice => {
     return (
-      <Mittaus data={invoice} />
+      <Mittaus data={invoice} key={invoice.id}/>
     );
    }
   );
