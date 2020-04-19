@@ -19,6 +19,7 @@ constructor(props) {
     data: testdata
   }
   this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  this.handleDeleteItem = this.handleDeleteItem.bind(this);
 }
 
  handleFormSubmit(newdata) {
@@ -39,6 +40,14 @@ constructor(props) {
    });
  }
 
+ handleDeleteItem(id) {
+   let storeddata = this.state.data.slice();
+   storeddata = storeddata.filter(item => item.id !== id);
+   this.setState({
+     data: storeddata
+   });
+ }
+
   render () {
     return (
       <Router>
@@ -50,6 +59,7 @@ constructor(props) {
        <Route path="/add" render={() => <AddItem onFormSubmit={this.handleFormSubmit}/>} />
        <Route path="/edit/:id" render={(props) => <EditItem data={this.state.data}
                                                              onFormSubmit={this.handleFormSubmit}
+                                                             onDeleteItem={this.handleDeleteItem}
                                                              {...props} />} />
        <Menu />
       </div>

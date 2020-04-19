@@ -18,8 +18,7 @@ function EditItem(props) {
 
         <h2>Kirjauksen muokkaaminen:</h2>
 
-        <ItemForm onFormSubmit={props.onFormSubmit} data={itemData} />
-
+        <ItemForm onFormSubmit={props.onFormSubmit} data={itemData} onDeleteItem={props.onDeleteItem} />
         </div>
 
       </Content>
