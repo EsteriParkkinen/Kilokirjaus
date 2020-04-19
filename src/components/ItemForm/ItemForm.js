@@ -12,13 +12,15 @@ class ItemForm extends React.Component {
 
     constructor(props) {
       super(props);
+      const data = props.data ? props.data : {
+        viikko: "",
+        mittauspaiva: "",
+        paino: 0,
+        vyotaro: 0
+      }
       this.state = {
-        data: {
-            viikko: "",
-            mittauspaiva: "",
-            paino: 0,
-            vyotaro: 0
-           }
+        data: data
+           
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -94,7 +96,7 @@ class ItemForm extends React.Component {
       <Button onClick={this.handleCancel}>PERUUTA</Button>
       </div>
       <div>
-      <Button type="submit" primary>LISÄÄ</Button>
+      <Button type="submit" primary>{this.state.data.id ? "TALLENNA" : "LISÄÄ"} </Button>
       </div>
     </div>
 

@@ -1,7 +1,6 @@
 .mittaus {
-    padding: 1em;
-    border-bottom: 1px solid #BADDFE;
-  
+   border-bottom: 1px solid #BADDFE;
+    display: flex;
   }
   
 .mittaus__rivi {
@@ -18,4 +17,25 @@
   font-size: 85%;
   color: #666;
   }
+
+  .mittaus > div {
+      flex: 1 1 auto;
+      padding: 1em;
+  }
+
+  .mittaus__linkki {
+      max-width: 1em;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.1);
+
+  }
   
+  .mittaus:hover .mittaus__linkki {
+      display: flex;
+  }
+
+  .kulukortti__linkki a {
+      color: #000;
+  }
