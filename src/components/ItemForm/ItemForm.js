@@ -77,8 +77,9 @@ class ItemForm extends React.Component {
         <label htmlFor="name"> viikko: </label>
         <input type="week" name="viikko" value={this.state.data.viikko} onChange={this.handleInputChange}  />
       </div>
-
-     <div>
+     </div>
+      <div className="itemform__row">
+      <div>
       <label htmlFor="name">mittauspäivä: </label>
        <input type="date" name="mittauspaiva" value={this.state.data.mittauspaiva} onChange={this.handleInputChange} />
      </div>
@@ -89,12 +90,12 @@ class ItemForm extends React.Component {
   <div className="itemform__row">
        <div>
           <label htmlFor="name">paino: </label>
-          <input type="number" name="paino" step="O.5" size="10" value={this.state.data.paino} onChange={this.handleInputChange} />
+          <input type="number" name="paino" step="O.5"  value={this.state.data.paino} onChange={this.handleInputChange} />
       </div>  
 
        <div>
            <label htmlFor="name">vyötärö: </label>
-           <input type="number" name="vyotaro" step="0.5" size="8" value={this.state.data.vyotaro} onChange={this.handleInputChange} />
+           <input type="number" name="vyotaro" step="0.5" value={this.state.data.vyotaro} onChange={this.handleInputChange} />
        </div> 
     </div>
 
