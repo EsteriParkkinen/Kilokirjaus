@@ -104,7 +104,7 @@ class ItemForm extends React.Component {
       <Button onClick={this.handleCancel}>PERUUTA</Button>
       </div>
       <div>
-      <Button type="submit" primary>{this.state.data.id ? "TALLENNA" : "LISÄÄ"} </Button>
+      <Button type="submit" primary>{this.state.data.id ? "TALLENNA" : "  LISÄÄ  "} </Button>
       </div>
     </div>
 

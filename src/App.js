@@ -97,7 +97,7 @@ componentDidMount() {
       <Content>
         <div className="App_welcome">
         <div>Et ole vielä kirjautunut sisään.</div>
-        <div><Button primary onClick={this.login}>Kirjaudu sisälle</Button></div>
+        <div><Button primary onClick={this.login}>Kirjaudu tästä</Button></div>
        {this.state.error?<p>{this.state.error}</p>:null}
        </div>
       </Content>
